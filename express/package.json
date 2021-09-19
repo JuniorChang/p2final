@@ -1,0 +1,25 @@
+{
+  "name": "express",
+  "version": "3.0.0",
+  "description": "express vue mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "vue",
+    "mongodb"
+  ],
+  "author": "Chang Jia Le",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "handlebars-helpers": "^0.10.0",
+    "hbs": "^4.1.2",
+    "mongodb": "^4.1.2",
+    "wax-on": "^1.2.2"
+  }
+}

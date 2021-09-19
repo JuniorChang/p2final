@@ -1,0 +1,28 @@
+{{#extends 'base'}}
+{{#block 'content'}}
+
+<h1>Player Data</h1>
+<a href="./add_food.hbs" class="btn btn-success btn-sm">Add New Player</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Server</th>
+            <th>Online</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each collection}}
+        <tr>
+            <td>{{this.user}}</td>
+            <td>{{this.server}}</td>
+            <td>{{this.online}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+
+</table>
+
+
+{{/block}}
+{{/extends}}
