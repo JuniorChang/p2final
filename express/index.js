@@ -24,7 +24,13 @@ async function main() {
         'extended': false 
     }));
     // F: Connecting to Mongo
-    await MongoUtil.connect(process.env.MONGO_URL,'handsonB');
+    
+    try {
+        await MongoUtil.connect(process.env.MONGO_URL,'testingOne');
+    } catch (error) {
+        console.log(error)
+    }
+    
 
     // add routes here
 
@@ -37,12 +43,16 @@ async function main() {
     })
 
     app.post('/add-food', function(req,res){
-        console.log(req.body);
-        let foodname = req.body.foodName;
+        let { foodName, calories, tags} = req.body;
+        let db = MongoUtil.getDB();
+        if (!Array.isArray(tags)){
+            tags = [tags];
+        }
+
         db.collection("food").insertOne({
-            foodName,
+            foodNAme,
             calories,
-            tags
+            tags,
         });
 
         res.send('Completed');
@@ -61,22 +71,9 @@ async function main() {
         res.render("display_food_summary",{foodRecords});
     });
 
-    app.get("/hello/:name", (req, res) => {
-    let name = req.params.name;
-    res.send("Hi, " + name);
-    });
+    
 
-    hbs.handlebars.registerHelper("ifEquals", function (arg1, arg2, options) {
-    return arg1 == arg2 ? options.fn(this) : options.inverse(this);
-    });
-    app.get("/fruits", function (req, res) {
-    let favourite = "apples";
-    res.render("fruits.hbs", {
-        fruits: ["apples", "bananas", "oranges"],
-        favouriteFruit: favourite,
-    });
-    });
-
+ 
     app.listen(3000, () => {
     console.log("Server started");
     });
