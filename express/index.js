@@ -50,12 +50,12 @@ async function main() {
         }
 
         db.collection("food").insertOne({
-            foodNAme,
+            foodName,
             calories,
             tags,
         });
 
-        res.send('Completed');
+        res.redirect('/add-food')
     });
 
     app.get('/player-data', function(req,res){
@@ -65,10 +65,12 @@ async function main() {
     app.get("/display-food-summary", async (req,res)=>{
         let db = MongoUtil.getDB();
         let foodRecords = await db
-            .collection("food")
+            .collection("testingOne.food")
             .find()
             .toArray();
-        res.render("display_food_summary",{foodRecords});
+        res.render("display_food_summary",{
+            foodRecords
+        });
     });
 
     
