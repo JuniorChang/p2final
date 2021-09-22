@@ -3,15 +3,14 @@
     <h1>Testing</h1>
     <h2>THIS THIS THIS</h2>
 
-    
-<!-- Start of Name Input -->
+    <!-- Start of Name Input -->
     <div>
       <label class="form-label"> Character Name </label>
       <input class="form-control char-name" type="text" v-model="name" />
     </div>
-<!-- End of Name Input -->
+    <!-- End of Name Input -->
 
-<!-- Start of Role Selection -->
+    <!-- Start of Role Selection -->
     <label class="role">Select Your Role</label>
     <div class="d-flex justify-content-start">
       <div class="form-check">
@@ -79,11 +78,11 @@
           checked
         />
         <label class="form-check-label" for="flexRadioDefault2"> Roam </label>
-      </div>     
+      </div>
     </div>
-<!-- End of Role Selection -->
+    <!-- End of Role Selection -->
 
-<!-- Start of Server Selection -->
+    <!-- Start of Server Selection -->
     <div class="dropdown">
       <button
         class="btn btn-secondary dropdown-toggle"
@@ -94,16 +93,16 @@
         aria-expanded="false"
       >
         Server
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="Alpha">Alpha</a>
+          <a class="dropdown-item" href="Beta">Beta</a>
+          <a class="dropdown-item" href="Charlie">Charlie</a>
+        </div>
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="Alpha">Alpha</a>
-        <a class="dropdown-item" href="Beta">Beta</a>
-        <a class="dropdown-item" href="Charlie">Charlie</a>
-      </div>
     </div>
-<!-- End of Server Selection -->
+    <!-- End of Server Selection -->
 
-<!-- Start of Item Selection -->
+    <!-- Start of Item Selection -->
     <form>
       <div class="form-group d-flex justify-content-start">
         <div class="form-check">
@@ -156,37 +155,25 @@
         </div>
       </div>
     </form>
-    
-<!-- End of Item Selection -->
+    <!-- End of Item Selection -->
 
-<!-- Start of Submit Button -->
-  <div> 
+    <!-- Start of Submit Button -->
+    <div>
       <button class="btn btn-primary" v-on:click="addNewChar">
-          Add Now
+        Add Now
       </button>
+    </div>
+    <div class="body"></div>
   </div>
-  <div class="body"></div>
-
-
-  </div>
-
-
-
 </template>
-
-
-
-
-
 
 <script>
 export default {
-  name: "AddChar",
-  data: function () {
+  data: function() {
     return {
       name: "",
-      role:"",
-      server:"",
+      role: "",
+      server: "",
       items: [],
     };
   },
@@ -194,9 +181,6 @@ export default {
 // import axios from "axios";
 
 // const API_URL = ""
-
-   
-
 </script>
 
 <style scoped>
@@ -217,6 +201,6 @@ export default {
 }
 
 .btn {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 </style>
